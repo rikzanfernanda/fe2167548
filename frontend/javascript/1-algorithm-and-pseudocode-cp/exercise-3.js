@@ -9,6 +9,7 @@ n_genap := 0;
 FOR i FROM 1 -> 10:
 	IF i % 2 == 0 THEN
 		n_genap += i
+    ENDIF
 ENDLOOP
 
 DISPLAY n_genap
