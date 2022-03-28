@@ -16,19 +16,42 @@
 
 
 // PSEUDOCODE :
-// TODO: answer here
+/*
+FUNCTION ruangCafe(name, age, money):
+  VAR juice := 50000
+  VAR latte := 300000
+
+  IF name == "" THEN
+    DISPLAY "Anda tidak boleh masuk!"
+  ELSE IF money < juice THEN
+    DISPLAY "Uang tidak cukup. Anda harus pulang."
+  ELSE IF age < 17 THEN
+    DISPLAY "Anda bisa pesan juice. Sisa uang anda: " + (money - juice)
+  ELSE
+    DISPLAY "Anda bisa pesan latte. Sisa uang anda: " + (money - latte)
+  ENDIF
+END FUNCTION
+*/
 
 function ruangCafe(name, age, money) {
   const juice = 50000;
   const latte = 300000;
 
-  // TODO: answer here
+  if (name === '') {
+    return 'Anda tidak boleh masuk!';
+  } else if (money < juice) {
+    return 'Uang tidak cukup. Anda harus pulang.';
+  } else if (age < 17) {
+    return `Anda bisa pesan juice. Sisa uang anda: ${money - juice}`;
+  } else {
+    return `Anda bisa pesan latte. Sisa uang anda: ${money - latte}`;
+  }
 }
 
-console.log(ruangCafe('', 21, 2000000))
-console.log(ruangCafe('Dito', 16, 1000000))
-console.log(ruangCafe('Adit', 11, 9000))
-console.log(ruangCafe('Fauzan', 30, 999999))
-console.log(ruangCafe('Tegar', 27, 5000))
+// console.log(ruangCafe('', 21, 2000000))
+// console.log(ruangCafe('Dito', 16, 1000000))
+// console.log(ruangCafe('Adit', 11, 9000))
+// console.log(ruangCafe('Fauzan', 30, 999999))
+// console.log(ruangCafe('Tegar', 27, 5000))
 
 module.exports = ruangCafe
