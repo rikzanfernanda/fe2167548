@@ -6,10 +6,19 @@
 // dlrow olleh
 
 function reverseString(str) {
-    // TODO: answer here
+    // return str.split("").reverse().join("");
+
+    let newStr = "";
+    for (let i = str.length - 1; i >= 0; i--) {
+        newStr += str[i];
+    }
+    return newStr;
 }
 
-const string = prompt('Masukan teks: ');
+// take input from the user
+// const string = prompt('Masukan teks: ');
 
+// cek
+const string = 'hello world';
 const result = reverseString(string);
 console.log(result);
