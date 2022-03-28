@@ -48,10 +48,10 @@ function ruangCafe(name, age, money) {
   }
 }
 
-// console.log(ruangCafe('', 21, 2000000))
-// console.log(ruangCafe('Dito', 16, 1000000))
-// console.log(ruangCafe('Adit', 11, 9000))
-// console.log(ruangCafe('Fauzan', 30, 999999))
-// console.log(ruangCafe('Tegar', 27, 5000))
+console.log(ruangCafe('', 21, 2000000))
+console.log(ruangCafe('Dito', 16, 1000000))
+console.log(ruangCafe('Adit', 11, 9000))
+console.log(ruangCafe('Fauzan', 30, 999999))
+console.log(ruangCafe('Tegar', 27, 5000))
 
 module.exports = ruangCafe
