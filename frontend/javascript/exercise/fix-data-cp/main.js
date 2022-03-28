@@ -35,8 +35,41 @@
  - TIDAK BOLEH menggunakan built-in function!
 */
 
+const changeVirus = (line, x) => {
+   let result = '';
+   for (let i = 0; i < line.length; i++) {
+      if (line[i] === '#') result += x;
+      else result += line[i];
+   }
+
+   return result;
+}
+
 function fixData(line) {
-  // TODO: answer here
+   let vokal = 0;
+   let konsonan = 0;
+   let virus = 0;
+
+   for (let i = 0; i < line.length; i++) {
+      if (line[i] === 'a' || line[i] === 'i' || line[i] === 'u' || line[i] === 'e' || line[i] === 'o') {
+         vokal++;
+      } else if (line[i] === '#') {
+         virus++;
+      } else {
+         konsonan++;
+      }
+   }
+
+   if (virus === 0) {
+      return line;
+   } else if (konsonan > vokal) {
+      return changeVirus(line, 'a');
+   } else if (konsonan < vokal) {
+      return changeVirus(line, 'b');
+   } else {
+      return changeVirus(line, 'c');
+   }
+
 }
 
 console.log(fixData('aoi#fdg#ue'))

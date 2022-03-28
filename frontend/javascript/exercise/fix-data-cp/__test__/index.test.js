@@ -18,4 +18,10 @@ describe('Fix Data', () => {
     const expectedResult3 = `aiucbcdcab`
     expect(result3).toMatch(expectedResult3)
   })
+
+  it('Should return the line it self', () => {
+    const result4 = fixData('abcdefghij')
+    const expectedResult4 = `abcdefghij`
+    expect(result4).toMatch(expectedResult4)
+  })
 })
