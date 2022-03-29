@@ -12,7 +12,11 @@
 
 
 function konversiMenit(menit) {
-  // TODO: answer here
+  let h = Math.floor(menit / 60);
+  let m = menit % 60;
+  m = m < 10 ? `0${m}`: m;
+
+  return `${h}:${m}`;
 }
 
 console.log(konversiMenit(61));

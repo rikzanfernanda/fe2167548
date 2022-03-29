@@ -6,8 +6,27 @@
  * - Jika angka pada parameter bernilai 102 maka angka palindrome terdekat adalah 111
  */
 
+const isPalindrome = (num) => {
+  if (num < 10) return false;
+
+  let numStr = '' + num;
+  let reversedNumStr = '';
+  let temp = num;
+
+  while (temp > 0) {
+    reversedNumStr += temp % 10;
+    temp = Math.floor(temp / 10);
+  }
+
+  return numStr === reversedNumStr;
+}
+
 function angkaPalindrome(num) {
-  // TODO: answer here
+  let temp = num;
+  while (!isPalindrome(temp)) {
+    temp++;
+  }
+  return temp;
 }
 
 console.log(angkaPalindrome(10)); //11

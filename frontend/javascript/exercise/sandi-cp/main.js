@@ -20,7 +20,20 @@ Lengkapilah function dengan input kata sandi dan output terjemahannya
 
 
 function terjemahKataSandi(kataSandi) {
-  // TODO: answer here
+  let terjemahKataSandi = '';
+  
+  for (let i = 0; i < kataSandi.length; i++) {
+    if (kataSandi[i] === '&') continue;
+    else if (kataSandi[i] === '%') continue;
+    else if (kataSandi[i] === '^') continue;
+    else if (kataSandi[i] === '#') terjemahKataSandi += ' ';
+    else if (kataSandi[i] === ']') terjemahKataSandi += ',';
+    else if (kataSandi[i] === '+') terjemahKataSandi += 'A';
+    else if (kataSandi[i] === ' ') terjemahKataSandi += 'E';
+    else terjemahKataSandi += kataSandi[i];
+  }
+
+  return terjemahKataSandi;
 }
 
 
