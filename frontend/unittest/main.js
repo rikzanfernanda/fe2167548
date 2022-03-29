@@ -1,9 +1,9 @@
 function sum(a, b) {
-    return 0; // TODO: replace this
+    return a + b;
 }
 
 function multiply(a, b) {
-    return 0; // TODO: replace this
+    return a * b;
 }
 
 module.exports = {
