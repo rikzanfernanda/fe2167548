@@ -12,8 +12,8 @@
 // Full Problem: https://www.hackerrank.com/challenges/birthday-cake-candles/problem
 
 function birthdayCakeCandles(candles) {
-  // Write your code here
-	// TODO: answer here
+  let largest = Math.max(...candles);
+  return candles.filter(candle => candle === largest).length;
 }
 
 function main() {
