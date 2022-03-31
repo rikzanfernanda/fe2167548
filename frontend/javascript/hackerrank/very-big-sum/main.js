@@ -12,8 +12,13 @@
 // Full Problem: https://www.hackerrank.com/challenges/a-very-big-sum/problem
 
 function aVeryBigSum(ar) {
-  // Complete this function
-  // TODO: answer here
+  // return ar.reduce((a, b) => a + b, 0);
+  let sum = 0;
+  for (let i = 0; i < ar.length; i++) {
+    sum += ar[i];
+  }
+  
+  return sum;
 }
 
 function main() {
