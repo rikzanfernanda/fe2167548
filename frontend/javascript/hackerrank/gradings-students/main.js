@@ -12,8 +12,9 @@
 // Full Problem: https://www.hackerrank.com/challenges/grading/problem
 
 function gradingStudents(grades) {
-  // Write your code here
-  // TODO: answer here
+  return grades.map(grade => {
+    return grade < 38 || grade % 5 < 3 ? grade : grade + (5 - grade % 5);
+  });
 }
 
 function main() {
