@@ -23,19 +23,19 @@
 
 
 function rotation(matrix) {
-    // for (let i = 0; i < matrix.length; i++) {
-    //     for (let j = 0; j < i; j++) {
-    //         [matrix[i][j], matrix[j][i]] = [matrix[j][i], matrix[i][j]];
-    //     }
-    // }
-    // for (let i = 0; i < matrix.length; i++) {
-    //     matrix[i].reverse();
-    // }
-    // return matrix;
+    if (matrix === undefined || matrix.length === 0) return 'invalid data';
+    else if (matrix[0][0] === undefined) return 'input should be a 2d array';
     
     for (let i = 0; i < matrix.length; i++){
-        
+        for (let j = 0; j < i; j++){
+            [matrix[i][j], matrix[j][i]] = [matrix[j][i], matrix[i][j]];
+        }
     }
+    for (let i = 0; i < matrix.length; i++){
+        matrix[i].reverse();
+    }
+
+    return matrix;
 
 };
 
