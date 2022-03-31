@@ -13,8 +13,22 @@
 // Full Problem: https://www.hackerrank.com/challenges/time-conversion/problem
 
 function timeConversion(s) {
-  // Write your code here
-  // TODO: answer here
+  let hour = s.slice(0, 2);
+  let minute = s.slice(3, 5);
+  let second = s.slice(6, 8);
+  let ampm = s.slice(8, 10);
+
+  if (ampm === 'AM') {
+    if (hour === '12') {
+      hour = '00';
+    }
+  } else {
+    if (hour !== '12') {
+      hour = parseInt(hour) + 12;
+    }
+  }
+
+  return hour + ':' + minute + ':' + second;
 }
 
 function main() {
