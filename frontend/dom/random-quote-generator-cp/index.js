@@ -171,13 +171,24 @@ var quotes = [
 	}
 ];
 
-// TODO: answer here
+const btn = document.getElementsByClassName('btn-generate')[0];
+const random_quote = document.getElementById('random-quote');
+const author = document.querySelector('#quote .author');
+const citation = document.querySelector('#source .citation');
+const year = document.querySelector('#source .year');
+
+btn.addEventListener('click', displayQuote);
 
 function getQuote() {
-	// TODO: answer here
+	return quotes[Math.floor(Math.random() * quotes.length)];
 }
 
 
 function displayQuote() {
-	// TODO: answer here
+	let quote = getQuote();
+
+	random_quote.innerHTML = quote.quote;
+	author.innerHTML = quote.author;
+	citation.innerHTML = quote.citation ? quote.citation: '';
+	year.innerHTML = quote.year ? quote.year: '';
 }
