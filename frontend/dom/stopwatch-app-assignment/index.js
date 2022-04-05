@@ -2,26 +2,62 @@
 Uncomment variable dibawah ini untuk mulai mengerjakan. dilarang mengganti nama variable yang dibuat.
 */
 
-// let stopwatch = mendapatkan value dari stopwatch
-// let startbtn = tombol untuk memulai stapwatch
-// let stopbtn = tombol untuk memberhentikan stopwatch
-// let resetbtn = tombol untuk mereset value dari stopwatch
+let stopwatch = document.querySelector('#stopwatch');
+let startbtn = document.querySelector('#start');
+let stopbtn = document.querySelector('#stop');
+let resetbtn = document.querySelector('#reset');
 
-// TODO: answer here
+let interval;
 
+let h = '00';
+let m = '00';
+let s = '00';
+
+startbtn.addEventListener('click', () => {
+  start();
+});
+
+stopbtn.addEventListener('click', () => {
+  stop();
+});
+
+resetbtn.addEventListener('click', () => {
+  reset();
+});
 
 function start() {
-  // TODO: answer here
+  runTime();
 }
 
 function stop() {
-  // TODO: answer here
+  clearInterval(interval);
 }
 
 function reset() {
-  // TODO: answer here
+  clearInterval(interval);
+  h = '00';
+  m = '00';
+  s = '00';
+
+  stopwatch.innerHTML = `${h}:${m}:${s}`;
 }
 
 function runTime() {
-  // TODO: answer here
+  h = parseInt(h);
+  m = parseInt(m);
+  s = parseInt(s);
+
+  interval = setInterval(() => {
+    s++;
+    if (s === 60) {
+      m++;
+      if (m === 60) {
+        h++;
+        m = 0;
+      }
+      s = 0;
+    }
+
+    stopwatch.innerHTML = `${h >= 10 ? h: '0' + h}:${m >= 10 ? m: '0' + m}:${s >= 10 ? s: '0' + s}`;
+  }, 1000);
 }
