@@ -8,7 +8,11 @@ let winningCount = {
 
 //render scoreboard on x-wins and o-wins <label/>
 function renderScore() {
-    // TODO: answer here
+    let x_wins = document.querySelector('#x-wins');
+    let o_wins = document.querySelector('#o-wins');
+
+    x_wins.innerHTML = winningCount.X;
+    o_wins.innerHTML = winningCount.O;
 }
 
 //check who the winner is, add the score to the scoreboard, and render the scoreboard
@@ -55,12 +59,28 @@ function checkWinner() {
 }
 
 function checkNoWinner() {
-    // TODO: answer here
+    let column = [];
+    const getValue = (y,x) => document.getElementById(`${y}-${x}`).textContent;
+    
+    for (let i = 0; i < SIZE; i++) {
+        for (let j = 0; j < SIZE; j++) {
+            if (getValue(i, j) !== '') {
+                column.push(getValue(i, j));
+            }
+        }
+    }
+    
+    if (column.length === 9) generate();
 }
 
 //handle click event, don't forget to disable the button so that it can't be clicked again
 function click(event) {
-    // TODO: answer here
+    event.target.innerHTML = turn;
+    event.target.disabled = true;
+    
+    checkWinner();
+    checkNoWinner();
+    turn = turn === 'X' ? 'O': 'X';
 }
 
 //generate the tictactoe board. It is just a 3x3 table with <button/> inside <td/>
@@ -75,7 +95,18 @@ function generate() {
     for (let i=0; i<SIZE; i++) {
         let tr = document.createElement("tr");
         table.appendChild(tr);
-        // TODO: answer here
+        for (let j=0; j<SIZE; j++) {
+            let td = document.createElement('td');
+            let btn = document.createElement('button');
+
+            btn.setAttribute('id', `${i}-${j}`);
+            btn.addEventListener('click', click);
+            btn.style.width = BUTTON_SIZE;
+            btn.style.height = BUTTON_SIZE;
+
+            tr.appendChild(td);
+            td.appendChild(btn);
+        }
     }
 
     renderScore();
