@@ -9,12 +9,23 @@
 // [-1, -2, -3] == 0, jika semua bilangan negatif, kita bisa mengembalikan nilai 0 
 
 
-let numInput = prompt("Masukan urutan bilangan dengan pemisah spasi:");
-let arr = numInput.split(" ").map(Number);
+// let numInput = prompt("Masukan urutan bilangan dengan pemisah spasi:");
+// let arr = numInput.split(" ").map(Number);
+let arr = [-1, -2, -3];
 
 // jika tidak ada elemen dalam array, jika semua bilangan negatif, dapat mengembalikan nilai 0
 let maxSum = 0; 
 
-// TODO: answer here
+if (arr.length !== 0) {
+    for (let i = 0; i < arr.length; i++) {
+        let sum = 0;
+        for (let j = i; j < arr.length; j++) {
+            sum += arr[j];
+            if (sum > maxSum) {
+                maxSum = sum;
+            }
+        }
+    }
+}
 
 console.log(maxSum);
