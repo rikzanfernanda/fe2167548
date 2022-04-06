@@ -3,16 +3,13 @@ Uncomment variable dibawah ini untuk mulai mengerjakan. dilarang mengganti nama 
 */
 
 let newGameBtn = document.querySelector('.new-game');
-let randomNumber = document.querySelector('#hidden-number');
+let randomNumber = generateNumber();
 let message = document.querySelector('.message');
 let displayScore = document.querySelector('.score');
 let input = document.querySelector('.input');
 let checkBtn = document.querySelector('button.check');
-let score = document.querySelector('.score');
+let score = 10;
 let number = document.querySelector('.number');
-
-randomNumber = generateNumber();
-score = 10;
 
 newGameBtn.addEventListener('click', () => {
   resetGame();
