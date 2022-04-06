@@ -35,6 +35,7 @@ function resetGame() {
   randomNumber = generateNumber();
   score = 10;
   displayScore.innerHTML = score;
+  input.value = '';
 
   //dilarang menghapus code dibawah ini!
   document.getElementById('hidden-number').innerHTML = randomNumber
