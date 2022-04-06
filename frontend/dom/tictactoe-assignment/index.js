@@ -70,17 +70,23 @@ function checkNoWinner() {
         }
     }
     
-    if (column.length === 9) generate();
+    return column.length === 9;
 }
 
 //handle click event, don't forget to disable the button so that it can't be clicked again
 function click(event) {
-    event.target.innerHTML = turn;
-    event.target.disabled = true;
+    this.disabled = true;
+    this.textContent = turn;
+    // event.target.innerHTML = turn;
+    // event.target.disabled = true;
     
-    checkWinner();
-    checkNoWinner();
     turn = turn === 'X' ? 'O': 'X';
+
+    checkWinner()
+    if (checkNoWinner()) {
+        //the board is full but no winner, it's a tie
+        generate();
+    }
 }
 
 //generate the tictactoe board. It is just a 3x3 table with <button/> inside <td/>
