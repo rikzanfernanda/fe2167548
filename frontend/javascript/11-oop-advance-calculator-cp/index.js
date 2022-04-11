@@ -15,7 +15,36 @@ class Calculator {
   constructor (operand) {
     this.operand = operand;
   }
-  // TODO: answer here
+  
+  add (number) {
+    this.operand += number;
+    return this;
+  }
+
+  subtract (number) {
+    this.operand -= number;
+    return this;
+  }
+
+  multiply (number) {
+    this.operand *= number;
+    return this;
+  }
+
+  divide (number) {
+    this.operand /= number;
+    return this;
+  }
+
+  square (number) {
+    this.operand = Math.pow(this.operand, number);
+    return this;
+  }
+
+  squareRoot (number) {
+    this.operand = Math.sqrt(this.operand);
+    return this;
+  }
 }
 
 module.exports = Calculator
