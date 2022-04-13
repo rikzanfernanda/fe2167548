@@ -42,7 +42,7 @@ class Player {
       if (this.randomizer() >= this.getStealChance()) {
         return "Gagal mencuri, coba lain kali";
       } else {
-        player.setGold(this.getGold() - 5);
+        player.setGold(player.getGold() - 5);
         player.setHasBeenRobbed(true);
         this.setGold(this.getGold() + 5);
         return "Berhasil mencuri 5 gold";
