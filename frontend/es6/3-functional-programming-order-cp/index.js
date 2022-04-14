@@ -8,7 +8,8 @@
  */
 
 function customisableGreeting(user, formatCallback) {
-  // TODO: answer here
+  let formattedName = formatCallback(user);
+
   return `Hi name is ${formattedName}, how are you?`;
 }
 
