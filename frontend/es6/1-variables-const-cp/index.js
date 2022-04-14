@@ -3,7 +3,14 @@
 
 function constantNoChange() {
   const kota = "Tanggerang";
-  // TODO: answer here
+  
+  if (true) {
+    let kota = "Jakarta";
+    console.log(kota);
+  }
+
+  kota = "Bandung";
+  return kota;
 }
 
 module.exports = constantNoChange
