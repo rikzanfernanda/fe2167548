@@ -14,7 +14,11 @@
  *
  */
 
-// TODO: answer here
+const multiplyByTwo = (n) => n * 2;
+
+const multiply = (x, y) => x * y;
+
+const returnTheTwo = () => 2;
 
 module.exports = {
   multiplyByTwo,
