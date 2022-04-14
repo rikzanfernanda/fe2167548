@@ -9,7 +9,13 @@
  */
 
 const convertElementToType = (array) => {
-  // TODO: answer here
+  let result = [];
+
+  for (const i of array) {
+    result.push(typeof i);
+  }
+
+  return result;
 };
 
 module.exports = convertElementToType
