@@ -15,7 +15,11 @@
  */
 
 const findAnimal = (bush) => {
-  // TODO: answer here
+  // return bush.replace(/[A-Z]/g, '');
+
+  // or
+
+  return bush.split('').filter(i => i === i.toLowerCase()).join('');
 };
 
 module.exports = findAnimal
