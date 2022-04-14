@@ -8,7 +8,11 @@
  */
 
 const lowerToUpperMap = (array) => {
-  // TODO: answer here
+  return array.map(i => {
+    return {
+      [i]: i.toUpperCase()
+    }
+  })
 };
 
 module.exports = lowerToUpperMap
