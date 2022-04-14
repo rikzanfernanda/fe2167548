@@ -40,6 +40,7 @@ class Player {
       return "Lawan terlalu miskin"
     } else {
       if (this.randomizer() >= this.getStealChance()) {
+        player.setHasBeenRobbed(false);
         return "Gagal mencuri, coba lain kali";
       } else {
         player.setGold(player.getGold() - 5);

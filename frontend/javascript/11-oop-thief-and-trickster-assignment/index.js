@@ -16,9 +16,28 @@ class Thief extends Player {
   }
 
   steal(player) {
-    super.steal(player);
-    if (player.job === "Trickster") {
-      return player.distractionPurse(this);
+    // super.steal(player);
+    // if (player.job === "Trickster") {
+    //   return player.distractionPurse(this);
+    // }
+
+    if (player.getGold() < 5) {
+      return "Lawan terlalu miskin"
+    } else {
+      if (this.randomizer() >= this.getStealChance()) {
+        player.setHasBeenRobbed(false);
+        return "Gagal mencuri, coba lain kali";
+      } else {
+        player.setGold(player.getGold() - 5);
+        player.setHasBeenRobbed(true);
+        this.setGold(this.getGold() + 5);
+
+        if (player.job === "Trickster") {
+          return player.distractionPurse(this);
+        }
+
+        return "Berhasil mencuri 5 gold";
+      }
     }
   }
 }
@@ -39,7 +58,6 @@ class Trickster extends Player {
   }
 
   distractionPurse(player) {
-    console.log(this.getGold());
     const rng = this.randomizer();
     
     if (rng >= this.distractionPurseChance) {
@@ -58,9 +76,28 @@ class Trickster extends Player {
   }
 
   steal(player) {
-    super.steal(player);
-    if (player.job === "Trickster") {
-      return player.distractionPurse(this);
+    // super.steal(player);
+    // if (player.job === "Trickster") {
+    //   return player.distractionPurse(this);
+    // }
+
+    if (player.getGold() < 5) {
+      return "Lawan terlalu miskin"
+    } else {
+      if (this.randomizer() >= this.getStealChance()) {
+        player.setHasBeenRobbed(false);
+        return "Gagal mencuri, coba lain kali";
+      } else {
+        player.setGold(player.getGold() - 5);
+        player.setHasBeenRobbed(true);
+        this.setGold(this.getGold() + 5);
+
+        if (player.job === "Trickster") {
+          return player.distractionPurse(this);
+        }
+        
+        return "Berhasil mencuri 5 gold";
+      }
     }
   }
 }
