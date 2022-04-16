@@ -12,7 +12,15 @@
  */
 
 const checkOmnipresent = (array, valueToFind) => {
-  // TODO: answer here
+  const len = array.length;
+  let cek = 0;
+  for (const item of array) {
+    for (const subitem of item) {
+      if (subitem === valueToFind) cek++;
+    }
+  }
+
+  return cek === len;
 };
 
 module.exports = checkOmnipresent
