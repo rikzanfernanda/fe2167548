@@ -7,7 +7,12 @@
  */
 
 const countRepetition = (numbers) => {
-  // TODO: answer here
+  const repetition = numbers.reduce((acc, curr) => {
+    return {
+      ...acc,
+      [curr]: acc[curr] ? acc[curr] + 1 : 1
+    }
+  }, 0);
   return repetition;
 };
 
