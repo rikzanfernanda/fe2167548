@@ -10,7 +10,7 @@
  */
 
 const filterDigit = (array, digit) => {
-  // TODO: answer here
+  return array.filter((v, i) => i < digit);
 };
 
 module.exports = filterDigit
