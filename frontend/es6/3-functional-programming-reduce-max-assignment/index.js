@@ -8,7 +8,9 @@
  */
 
 const maxFromArray = (numbers) => {
-  // TODO: answer here
+  const max = numbers.reduce((prev, curr) => {
+    return prev > curr ? prev : curr;
+  });
   return max;
 };
 
