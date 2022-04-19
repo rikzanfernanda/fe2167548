@@ -14,46 +14,48 @@
  */
  const https = require("https");
 
-const callApi = async () => {
-  try {
-    const response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
-    const data = await response.json();
-    console.log(data);
-  } catch (error) {
-    console.log(error);
-  }
-};
- function getStarWarsData(url) {
-   return new Promise((resolve, reject) => {
-     https
-       .get(url, (res) => {
-         let result = "";
- 
-         if (res.statusCode !== 200) {
-           reject(new Error(res.statusCode));
-         }
- 
-         res.on("data", (d) => {
-           result += d;
-         });
- 
-         res.on("end", () => {
-           resolve(result);
-         });
-       })
-       .on("error", (e) => {
-         reject(e);
-       });
-   });
- }
- 
- 
- async function getDataPeopleById(id) {
-   // TODO: answer here
- }
+// const callApi = async () => {
+//   try {
+//     const response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+//     const data = await response.json();
+//     console.log(data);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+function getStarWarsData(url) {
+  return new Promise((resolve, reject) => {
+    https
+      .get(url, (res) => {
+        let result = "";
 
- module.exports = {
+        if (res.statusCode !== 200) {
+          reject(new Error(res.statusCode));
+        }
+
+        res.on("data", (d) => {
+          result += d;
+        });
+
+        res.on("end", () => {
+          resolve(result);
+        });
+      })
+      .on("error", (e) => {
+        reject(e);
+      });
+  });
+}
+
+
+async function getDataPeopleById(id) {
+  const result = await getStarWarsData("https://swapi.dev/api/people/" + id)
+  const resultJson = JSON.parse(result);
+  return `${resultJson.name}, memiliki tinggi ${resultJson.height}cm dan lahir pada tahun ${resultJson.birth_year}`;
+}
+
+module.exports = {
   getDataPeopleById
- }
+}
  
  
