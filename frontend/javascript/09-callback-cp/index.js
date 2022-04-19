@@ -10,11 +10,10 @@ function doubleChars(str) {
 
 // function ini mengulang pengaplikasian callback pada str sejumlah num
 function repeat(str, num, cb) {
-  let result = str;
   for (let i = 0; i < num; i++) {
-    result = cb(result);
+    str = cb(str);
   }
-  return result;
+  return str;
 }
 
 console.log(repeat("triple", 2, doubleChars)); // ttttrrrriiiipppplllleeee

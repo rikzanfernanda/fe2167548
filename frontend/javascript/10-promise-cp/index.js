@@ -32,8 +32,20 @@ function requestStarWarsPeopleById(peopleId, onReturn, onError) {
 }
 
 function promiseStarWarsPeopleById(peopleId) {
-  // TODO: answer here
+  return new Promise((resolve, reject) => {
+    requestStarWarsPeopleById(peopleId, resolve, reject);
+  });
 }
+// promiseStarWarsPeopleById(1).then((res) => console.log(res))
+
+// tes
+// const cek = (n) => {
+//   return new Promise((resolve, reject) => {
+//     if (n % 2 === 0) return reject(new Error('n must be odd'));
+//     resolve(n);
+//   })
+// }
+// cek(2).then((res) => console.log(res)).catch(e => console.log(e.message));
 
 module.exports = {
   promiseStarWarsPeopleById,
