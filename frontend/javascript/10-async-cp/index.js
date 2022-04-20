@@ -49,10 +49,21 @@ function getStarWarsData(url) {
 
 
 async function getDataPeopleById(id) {
-  const result = await getStarWarsData("https://swapi.dev/api/people/" + id)
-  const resultJson = JSON.parse(result);
-  return `${resultJson.name}, memiliki tinggi ${resultJson.height}cm dan lahir pada tahun ${resultJson.birth_year}`;
+  try {
+    const result = await getStarWarsData("https://swapi.dev/api/people/" + id)
+    const resultJson = JSON.parse(result);
+    return `${resultJson.name}, memiliki tinggi ${resultJson.height}cm dan lahir pada tahun ${resultJson.birth_year}`;
+  } catch (error) {
+    return error.message;
+  }
 }
+
+// getDataPeopleById(1).then(result => {
+//   console.log(result);
+// }).catch(error => {
+//   console.log('error');
+//   console.log(error.message);
+// })
 
 module.exports = {
   getDataPeopleById
