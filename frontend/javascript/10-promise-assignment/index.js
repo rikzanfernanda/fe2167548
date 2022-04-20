@@ -52,7 +52,11 @@ function promiseStarWarsData(url) {
         });
 
         res.on("end", () => {
-          resolve(JSON.parse(result));
+          try {
+            resolve(JSON.parse(result));
+          } catch (error) {
+            reject(error);
+          }
         });
       })
       .on("error", (e) => {
@@ -62,8 +66,7 @@ function promiseStarWarsData(url) {
 }
 
 function getDataPeopleByIdWithFilms(peopleId) {
-  return promiseStarWarsData(`https://swapi.dev/api/people/${peopleId}`).then(
-    (data) => {
+  return promiseStarWarsData(`https://swapi.dev/api/people/${peopleId}`).then((data) => {
       const promises = data.films.map((film) => {
         return promiseStarWarsData(film);
       });
@@ -87,7 +90,15 @@ function getDataPeopleByIdWithFilms(peopleId) {
         };
       });
     }
-  );
+  )
+  .catch((err) => {
+    return err.message;
+  });
 }
+// getDataPeopleByIdWithFilms(1).then((res) => {
+//   console.log(res);
+// }).catch((err) => {
+//   console.log(err);
+// });
 
 module.exports = { getDataPeopleByIdWithFilms };
