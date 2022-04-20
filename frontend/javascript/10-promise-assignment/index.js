@@ -88,7 +88,7 @@ function getDataPeopleByIdWithFilms(peopleId) {
             }
           })
         };
-      });
+      }).catch((err) => err.message);
     }
   )
   .catch((err) => {
