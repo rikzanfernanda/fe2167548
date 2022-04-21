@@ -25,13 +25,7 @@ function mostWordsFound(sentences) {
 }
 
 function countWords(sentence) {
-    let words = sentence.split(' ');
-    console.log(words);
-    let count = 0;
-    for (let i = 0; i < words.length; i++) {
-        count++;
-    }
-    return count;
+    return sentence.split(' ').length;
 }
 
 // let sentences = ["Andi suka bermain bola", "Budi suka bermain basket", "Terima kasih"]
