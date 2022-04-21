@@ -51,4 +51,29 @@ function sort(arr) {
 }
 let nums = [23, 98, 67, 45, 12, 24];
 let sorted = sort(nums);
-console.log(sorted);
+// console.log(sorted);
+
+function mySort(arr) {
+    let swapped = false;
+    for (let i = 0; i < arr.length-1; i++) {
+        console.log(arr);
+        for (let j = i+1; j < arr.length; j++) {
+            console.log(arr[i], arr[j]);
+            if (arr[i] > arr[j]) {
+                let tmp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = tmp;
+                swapped = true;
+                console.log(arr);
+            }
+        }
+        console.log(arr);
+        console.log('\n');
+        if (!swapped) return arr;
+    }
+
+    return arr;
+}
+
+let myarray  = [5,4,3,2,1];
+console.log(mySort(myarray));
