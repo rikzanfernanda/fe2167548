@@ -1,5 +1,11 @@
 let setA = new Set(["Java", "Python", "Javascript", "C ++", "C#"]);
 
+console.log(setA.values());
+
+for (let item of setA.values()) {
+    console.log(item);
+}
+
 setA.add("Java"); //doesn't change
 console.log(setA); 
 
