@@ -14,7 +14,12 @@
 
 function intersection(setA, setB) {
     let result = new Set();
-    return result; // TODO: replace this
+    for (let item of setA) {
+        if (setB.has(item)) {
+            result.add(item);
+        }
+    }
+    return result;
 }
 
 let setA = new Set(["Java", "Python", "Javascript", "C ++", "C#"]);
