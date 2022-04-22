@@ -7,10 +7,23 @@ module.exports = class MusicPlayer {
     }
 
     addSong(song) {
-        // TODO: answer here
+        this.playlist = new Playlist([...this.playlist.songs, song], this.playlist.isRepeatable)
     }
 
     play() {
-        // TODO: answer here
+        let result = '';
+        
+        if (this.playlist.songs.length === 0) result = '';
+        else if (this.playlist.isRepeatable) {
+            result = `Now Playing ${this.playlist.songs[0].singer} - ${this.playlist.songs[0].title}`;
+            let temp = this.playlist.songs[0];
+            this.playlist.songs.shift();
+            this.playlist.songs.push(temp);
+        } else {
+            result = `Now Playing ${this.playlist.songs[0].singer} - ${this.playlist.songs[0].title}`;
+            this.playlist.songs.shift();
+        }
+
+        return result;
     }
 }
