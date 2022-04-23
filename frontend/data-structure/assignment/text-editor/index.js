@@ -1,21 +1,28 @@
 module.exports = class TextEditor {
     constructor() {
-        // TODO: answer here
+        this.undoStack = []
+        this.redoStack = []
     }
 
     write(c) {
-        // TODO: answer here
+        this.undoStack.push(c)
     }
 
     read() {
-        // TODO: answer here
+        return this.undoStack.join('')
     }
 
     undo() {
-        // TODO: answer here
+        if (this.undoStack.length > 0) {
+            let pop = this.undoStack.pop()
+            this.redoStack.push(pop)
+        }
     }
     
     redo() {
-        // TODO: answer here
+        if (this.redoStack.length > 0) {
+            let pop = this.redoStack.pop()
+            this.undoStack.push(pop)
+        }
     }
 }
