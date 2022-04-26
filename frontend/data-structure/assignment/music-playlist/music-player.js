@@ -11,16 +11,13 @@ module.exports = class MusicPlayer {
     }
 
     play() {
-        let result = '';
-        
-        if (this.playlist.songs.length === 0) result = '';
-        else if (this.playlist.isRepeatable) {
-            result = `Now Playing ${this.playlist.songs[0].singer} - ${this.playlist.songs[0].title}`;
-            let temp = this.playlist.songs[0];
-            this.playlist.songs.shift();
-            this.playlist.songs.push(temp);
+        if (this.playlist.songs.length === 0) return '';
+
+        let result = `Now Playing ${this.playlist.songs[0].singer} - ${this.playlist.songs[0].title}`;
+        if (this.playlist.isRepeatable) {
+            let first = this.playlist.songs.shift();
+            this.playlist.songs.push(first);
         } else {
-            result = `Now Playing ${this.playlist.songs[0].singer} - ${this.playlist.songs[0].title}`;
             this.playlist.songs.shift();
         }
 
