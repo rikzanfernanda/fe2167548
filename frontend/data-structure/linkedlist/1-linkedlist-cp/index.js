@@ -14,15 +14,34 @@
 function ListNode(val, next) {
     this.val = (val===undefined ? 0 : val)
     this.next = (next===undefined ? null : next)
+
+    return {
+        val: this.val,
+        next: this.next
+    }
 }
 
- function middleNode(head) {
+function middleNode(head) {
     let length = 1;
     let cur = head;
     let middle = head;
+    
+    while (cur.next) {
+        length++;
+        cur = cur.next;
+    }
 
-    // TODO: answer here
+    let limit = Math.floor(length / 2);
+    
+    for (let i = 0; i < limit; i++) {
+        middle = middle.next;
+    }
+
     return middle;
 }
+
+// let list = ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5, null)))));
+// let middle = middleNode(list);
+// console.log(middle);
 
 module.exports = { ListNode, middleNode }
