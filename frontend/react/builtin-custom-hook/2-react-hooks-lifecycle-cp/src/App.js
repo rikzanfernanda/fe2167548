@@ -1,13 +1,16 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
+import './App.css';
 
 export default function App() {
   return <RandomQuote />;
 }
 
 export function RandomQuote() {
-  // TODO: answer here
-  React.useEffect(() => {
-    // TODO: answer here
+  const [loading, setLoading] = useState(false);
+  const [quote, setQuote] = useState("");
+
+  useEffect(() => {
+    getQuote();
   }, []);
 
   function getQuote() {
@@ -18,5 +21,18 @@ export function RandomQuote() {
       .finally(() => setLoading(false));
   }
 
-  // TODO: answer here
+  return (
+    <div>
+      <div style={{backgroundColor: 'yellow', padding: '20px'}}>
+        <h1>Random Quote</h1>
+      </div>
+      <div data-testid="quote" style={{padding: '20px'}}>
+        {loading ? 'Loading...' : <div>
+          <h2>{quote.content}</h2>
+          <p>~ {quote.author}</p>
+          </div>}
+          <button onClick={getQuote}>Get another quote</button>
+      </div>
+    </div>
+  );
 }
