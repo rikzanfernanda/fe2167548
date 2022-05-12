@@ -1,5 +1,10 @@
-// TODO: answer here
+import React from 'react';
+
 export default function LikeDislikeButton({id, isLiked, isDisliked, likeCount, dislikeCount}) {
 
-    // TODO: answer here
+    return (
+        <div>
+            
+        </div>
+    )
 }

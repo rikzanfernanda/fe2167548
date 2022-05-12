@@ -1,0 +1,25 @@
+// color
+$background-color: #fafafa;
+$white: #fff;
+$black: rgb(44, 44, 44);
+
+
+html{
+    font-size: 14px;
+}
+
+body{
+    background-color: $background-color;
+    color: $black;
+}
+
+.container{
+    width: 70%;
+    margin: auto;
+}
+
+a{
+    text-decoration: none;
+    color: $black;
+    font-weight: bold;
+}
