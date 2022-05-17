@@ -5,7 +5,10 @@ import '../components/PodcastListItem.css';
 const PodcastListItem = ({ id, podcastItem, setFormModalType, setShowFormModal, setPodcastId }) => {
   const onClickUpdateBtn = () => {
     // TODO: answer here
-  }
+    setFormModalType("UPDATE");
+    setShowFormModal(true);
+    setPodcastId(id);
+  };
   return (
     <div aria-label='podcast-list-item' className="list-item-container">
       <img alt={'podcast-img'} width={300} src={podcastItem.imageUrl} />

@@ -20,22 +20,77 @@ const PodcastFormModal = (props) => {
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     // TODO: answer here
+    setFormValues({ ...formValues, [name]: value });
   };
 
   const handleFormSubmit = async () => {
     // TODO: answer here
+    if (formModalType === "ADD") {
+      try {
+        let response = await axios.post(Constants.API_URL, formValues);
+        if (response.status === 201) {
+          setPodcastList([...podcastList, response.data]);
+        }
+      } catch (error) {
+        console.log(error.message);
+      }
+    } else if (formModalType === "UPDATE") {
+      try {
+        let response = await axios.put(
+          `${Constants.API_URL}/${podcastId}`,
+          formValues
+        );
+        if (response.status === 200) {
+          setPodcastList(
+            podcastList.map((item) => {
+              if (item.id === podcastId) {
+                return { ...item, ...formValues };
+              }
+              return item;
+            })
+          );
+        }
+      } catch (error) {
+        console.log(error.message);
+      }
+    }
   };
 
   const onCloseModal = () => {
     // TODO: answer here
+    setFormValues({});
+    setShowFormModal(false);
   };
 
   const getPodcastById = async () => {
     // TODO: answer here
+    try {
+      let response = await axios.get(Constants.API_URL + "/" + podcastId);
+      if (response.status === 200) {
+        setFormValues({
+          id: response.data.id,
+          status: response.data.status,
+          title: response.data.title,
+          episode: response.data.episode,
+          genre: response.data.genre,
+          duration: response.data.duration,
+          publisher: response.data.publisher,
+          summary: response.data.summary,
+          imageUrl: response.data.imageUrl
+        });
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   useEffect(() => {
     // TODO: answer here
+    if (showFormModal) {
+      if (formModalType === "UPDATE") {
+        getPodcastById();
+      }
+    }
   }, [showFormModal]);
 
   return (
