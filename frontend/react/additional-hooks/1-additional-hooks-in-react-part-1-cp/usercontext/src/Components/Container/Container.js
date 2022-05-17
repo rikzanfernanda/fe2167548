@@ -7,7 +7,7 @@ const Container = ({children}) =>{
 
     const renderTheme = (theme) =>{
         //mengubah background dari container
-        // TODO: answer here
+        return styles[`${theme}-theme`];
     }
 
     return(

@@ -10,11 +10,13 @@ const ToggleButton = () =>{
     const changeTheme = (theme) =>{
         //mengubah tema dari toggleButton
         // TODO: answer here
+        setTheme(theme === 'light' ? 'dark': 'light');
     }
 
     const renderToggleButtonText = (theme) =>{
         //mengubah tulisan dari toggleButton
         // TODO: answer here
+        return theme === 'light' ? 'Toggle Dark Theme': 'Toggle Light Theme';
     }
 
     return(
