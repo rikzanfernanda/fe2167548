@@ -6,10 +6,15 @@ const PracticeUseMemo = () =>{
     const [dark, setDark] = useState(false);
     const  doubleNumber = useMemo(()=>{
         // TODO: answer here
-    );
+        return slowMultiplyFunction(number, multiplier);
+    }, [number, multiplier]);
     const themeStyles = useMemo(()=>{
         // TODO: answer here
-    )
+        return {
+            backgroundColor: dark ? 'black' : 'white',
+            color: dark? 'white': 'black'
+        }
+    }, [dark]);
     useEffect(()=>{
         console.log('Theme Changed')
     }, [themeStyles])
@@ -29,6 +34,7 @@ const slowMultiplyFunction = (num, multiplier) =>{
 
     for(let i=0; i< 1000000000;i++){}
     // TODO: answer here
+    return num * multiplier;
 }
 
 export default PracticeUseMemo;
