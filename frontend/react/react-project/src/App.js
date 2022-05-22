@@ -1,13 +1,22 @@
 import "./App.css"
 import React from 'react';
-import Navbar from "./components/Navbar";
+import { SessionProvider } from "./context/SessionContext";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Profile from "./components/Profile";
+import Home from "./components/Home";
 
 function App() {
   return (
-    <div aria-label="App">
-      <Navbar/>
-      <h1 aria-label="App Title">React Project</h1>
-    </div>
+    <>
+      <SessionProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/profile/:UserId" element={<Profile />} />
+          </Routes>
+        </BrowserRouter>
+      </SessionProvider>
+    </>
   )
 }
 

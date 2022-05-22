@@ -1,11 +1,18 @@
 // color
-$background-color: #fafafa;
+$background-color: #eeeeee;
 $white: #fff;
 $black: rgb(44, 44, 44);
+$color-form-container: #e4e4e4;
+$color-btn-primary: rgb(44, 44, 44);
+$color-btn-secondary: rgb(133, 133, 133);
 
 
 html{
     font-size: 14px;
+}
+
+*{
+    box-sizing: border-box;
 }
 
 body{
@@ -14,7 +21,7 @@ body{
 }
 
 .container{
-    width: 70%;
+    width: 100%;
     margin: auto;
 }
 
@@ -22,4 +29,30 @@ a{
     text-decoration: none;
     color: $black;
     font-weight: bold;
+}
+
+.btn-primary{
+    background-color: $color-btn-primary;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn-secondary{
+    background-color: $color-btn-secondary;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+
+@media screen and (min-width: 576px) {
+    .container{
+        width: 50%;
+    }
 }
