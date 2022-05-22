@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getSession } from "../api/auth";
 import { API_URL } from "../api/config";
-import Logo from "../logo.svg";
+import { getProfile } from "../api/profile";
 
 export default function Profile() {
   // TODO: answer here
@@ -15,7 +15,7 @@ export default function Profile() {
   useEffect(() => {
     getSession()
 
-    axios.get(`${API_URL}/profile/${UserId}`, {withCredentials: true}).then((res) => {
+    getProfile(UserId).then((res) => {
       setProfile(res.data.data.profile);
       setPosts(res.data.data.posts);
     })

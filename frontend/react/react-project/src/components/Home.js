@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { API_URL } from "../api/config";
+import { getPosts } from "../api/post";
 import Navbar from "./Navbar";
 import PostCard from "./PostCard";
 import UploadForm from "./UploadForm";
@@ -13,7 +14,7 @@ const Home = () => {
   }, [])
 
   const fetchData = async() => {
-    const res = await axios.get(`${API_URL}/post/list`, { withCredentials: true });
+    const res = await getPosts();
     setData(res?.data.data);
   }
 

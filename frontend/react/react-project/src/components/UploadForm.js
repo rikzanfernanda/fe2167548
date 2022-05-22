@@ -2,6 +2,7 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { API_URL } from '../api/config';
+import { createPost } from '../api/post';
 import '../assets/style/components/uploadForm.scss';
 
 export default function UploadForm({onSubmit}) {
@@ -24,8 +25,7 @@ export default function UploadForm({onSubmit}) {
     let formData = new FormData();
     formData.append('content', input.content);
     formData.append('image', input.image);
-    axios.post(`${API_URL}/post/create`, formData, {withCredentials: true})
-    .then((res) => {
+    createPost(formData).then((res) => {
       onSubmit(res.data);
     })
   }
