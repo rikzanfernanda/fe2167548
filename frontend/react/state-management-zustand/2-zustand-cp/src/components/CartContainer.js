@@ -28,9 +28,9 @@ export default function CartContainer() {
           <ModalCloseButton />
           <ModalBody>
               <VStack>
-                {items.map((item) => (
+                {items.map((item, i) => (
                     <CartItem
-                        key={item.id}
+                        key={i}
                         item={item}
                         onRemove={removeItem}
                         onChange={changeQuantity}

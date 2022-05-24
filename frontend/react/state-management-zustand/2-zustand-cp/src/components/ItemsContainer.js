@@ -4,7 +4,18 @@ import useItemStore from "../store/itemStore"
 
 export default function ItemsContainer() {
   const addToCart = useCartStore((state) => state.addItem)
+  const cart = useCartStore((state) => (state.items))
   const { items, removeItem } = useItemStore()
+
+  const handleAddToCart = (item) => {
+    let cek = false;
+    for (let i = 0; i < cart.length; i++) {
+      if (item.id === cart[i].id) {
+        cek = true
+      }
+    }
+    if (!cek) addToCart({...item, quantity: 1});
+  }
 
   return (
     <Flex flexWrap="wrap" width="full" zIndex="base" gap="1rem" padding="1rem">
@@ -13,7 +24,8 @@ export default function ItemsContainer() {
           key={item.id}
           item={item}
           onRemove={() => removeItem(item.id)}
-          addToCart={() => addToCart(item)}
+          addToCart={() => handleAddToCart(item)}
+          // addToCart={() => addToCart({...item, quantity: 1})}
         />
       ))}
     </Flex>
