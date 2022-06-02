@@ -17,5 +17,8 @@ router.post("/", createBook);
 router.get("/:id", getBook);
 
 // TODO: answer here
+router.delete("/:id", deleteBook);
+
+router.patch("/:id", updateBook);
 
 export default router;
