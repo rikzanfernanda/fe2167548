@@ -64,7 +64,7 @@ export const deleteBook = (req, res) => {
       message: `book with id ${bookItem.id} has been deleted`
     });
   } else {
-    res.status(500).json({
+    res.status(404).json({
       success: false,
       message: `book with id ${req.params.id} not found`
     });
@@ -88,7 +88,7 @@ export const updateBook = (req, res) => {
       message: `title has been updated to ${updatedBook.title}.author has been updated to ${updatedBook.author}`
     });
   } else {
-    res.status(500).json({
+    res.status(404).json({
       success: false,
       message: `book with id ${req.params.id} not found`
     });
